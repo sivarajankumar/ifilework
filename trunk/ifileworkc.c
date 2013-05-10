@@ -95,18 +95,16 @@ int main( int argc, char ** argv )
 
   initialization();
 
-  /* utiliser le premier argument de la commande comme nom de serveur FTP */
+  
   if ( argc > 1 ) 
     result= Connect( argv[1] );
   
-  /* si la connection a reussi, on essaie de s'authentifier */
+
   if ( result) 
     Login( "", "" );
 
-  /* on passe en mode commandes, jusqu'a ce que l'on tappe "bye" */
   Exec_Command();
 
-  /* Fin du programme */
   Close_All();
 
   return 0;
