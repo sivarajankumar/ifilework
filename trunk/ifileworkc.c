@@ -51,8 +51,8 @@ struct sockaddr_in       controlAddr;
 int                      controlSocket;
 int                      dataSocket;
 char                     last_reply [1024*8];
-int                      connected; /* 1 = Oui, 0 = Non */
-int                      loginOk; /* 1 = Oui, 0 = Non */
+int                      connected; /* 1 = yes */
+int                      loginOk; /* 1 = yes*/
 char                     user[64];
 char                     password[64];
 char                     type_Transfer;
