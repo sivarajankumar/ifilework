@@ -1,6 +1,6 @@
 /*  2004 ifilework TEAM
     mailto: myfilesadev@gmail.com
-
+ 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public License
    as published by the Free Software Foundation; either version 2
@@ -37,7 +37,7 @@
     #include <dirent.h>   
        
     #include "ifileworks.h"  
-
+ 
      
     /* local functions declarations */   
     static int ifw_do_user(int,char*);   
@@ -94,8 +94,8 @@
     * Anonymous users, you can add more user/pass pairs here.  
     */   
     struct ifw_user_struct ifw_users[] = {   
-            {"anonymous", ""},   
-            {"ftp", ""}   
+            {"anonymous", "","/home"},   
+            {"ftp", "","/"}   
     };   
        
     /*  
@@ -140,7 +140,7 @@
             printf("Ifilework Server -- version : "IFW_VERSION"\n" );
             puts("____________________________________\n" );   
             printf("Usage :\n\n ifileworks -p <port> -d\n\n");   
-
+ 
             exit(0);
     }   
        
@@ -191,9 +191,7 @@
        
             signal(SIGPIPE, SIG_IGN);   
             signal(SIGCHLD, ifw_sigchild);   
-            // getcwd(ifw_home_dir, sizeof(ifw_home_dir));   
-               strcpy(ifw_home_dir,HOME_SERVER);
-       
+                     
             return IFW_OK;   
     }   
        
@@ -387,7 +385,9 @@
                     for (i = 0; i < IFW_ARR_LEN(ifw_users); i++)   
                             if (strcmp(cp + 1, ifw_users[i].user) == 0) {   
                                     IFW_DEBUG("user(%s) is found\n", cp + 1);   
-                                    ifw_cur_user = &ifw_users[i];   
+                                    ifw_cur_user = &ifw_users[i]; 
+                                    strcpy(ifw_home_dir,ifw_users[i].home);  
+                                    chdir(ifw_home_dir) ;
                                     break;   
                             }   
        
@@ -443,7 +443,8 @@
             char curdir[PATH_MAX];   
        
             IFW_CHECK_LOGIN();   
-       
+ 
+             
             if (!space)   
                     return ifw_send_resp(ctrlfd, 550);   
        
@@ -1078,11 +1079,11 @@
     {   
         if(argc < 2)
           ifw_usage();
-
+ 
         puts("____________________________________\n" );
         printf("Ifilework Server -- version : "IFW_VERSION" \n");
         puts("____________________________________" );
-
+ 
             int listenfd;   
        
             ifw_parse_args(argc, argv);   
