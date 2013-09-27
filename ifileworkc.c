@@ -816,25 +816,25 @@ void Exec_Command(void)
 
 void Print_Help(void)
 {
-  printf( "ifilework list of commands:\n" );
-  printf( "___________________________\n" );
-  printf( "\n" );
-  printf( "?...............this helps\n" );
-  printf( "open <server> ..Connect to the server <server>\n" );
-  printf( "user............enter a login and password\n" );
-  printf( "bye.............exit the program\n" );
-  printf( "bin.............switch to binary mode\n" );
-  printf( "ascii...........switch to text mode\n" );
-  printf( "pwd.............display the current directory\n" );
-  printf( "cd <dir>........go to the directory <dir>\n" );
-  printf( "ls [<dir>]......display the contents of the directory<dir>\n" );
-  printf( "dir [<dir>].....display the contents of the directory <dir>\n" );
-  printf( "type <file>.....display the file <file>\n" );
-  printf( "get <file>......get file <file>\n" );
-  printf( "put <file>......send the file <file>\n" );
-  printf( "del <file>......delete the file <file>\n" );
-  printf( "syst............discover the system of the FTP server\n" );
-  printf( "\n" );
+  printf( "ifilework list of commands:\n" 
+  "___________________________\n" 
+  "\n" 
+  "?...............this helps\n" 
+  "open <server> ..Connect to the server <server>\n"
+  "user............enter a login and password\n"
+  "bye.............exit the program\n"
+  "bin.............switch to binary mode\n" 
+  "ascii...........switch to text mode\n"
+  "pwd.............display the current directory\n" 
+  "cd <dir>........go to the directory <dir>\n" 
+  "ls [<dir>]......display the contents of the directory<dir>\n" 
+  "dir [<dir>].....display the contents of the directory <dir>\n" 
+  "type <file>.....display the file <file>\n" 
+  "get <file>......get file <file>\n" 
+  "put <file>......send the file <file>\n" 
+  "del <file>......delete the file <file>\n" 
+  "syst............discover the system of the FTP server\n" );
+  "\n" );
 }
 
 
