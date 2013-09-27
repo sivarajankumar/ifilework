@@ -833,7 +833,7 @@ void Print_Help(void)
   "get <file>......get file <file>\n" 
   "put <file>......send the file <file>\n" 
   "del <file>......delete the file <file>\n" 
-  "syst............discover the system of the FTP server\n" );
+  "syst............discover the system of the FTP server\n"
   "\n" );
 }
 
