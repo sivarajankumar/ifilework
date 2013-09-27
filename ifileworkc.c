@@ -201,7 +201,7 @@ int Connect( char *host )
     Close_All();
     return 0;
   }
-  /* Nous sommes a present connecteds */
+  /* We are now connected */
   connected = 1;
   printf("connected to %s.\n", hostName);
 
@@ -556,8 +556,7 @@ int Read_File( char * cmd, char * fileName, int display  )
 
   if ( ! display )
     {
-      /* Creer un fichier local pour stocker le transfert
-	 des donnees */
+      /* Create a local file to store the transfer of data */
       localFileName = Get_Local_Name( fileName );
       dest = fopen( localFileName, "w" );
       if ( ! dest )
